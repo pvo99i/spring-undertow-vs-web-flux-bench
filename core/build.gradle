@@ -1,0 +1,20 @@
+jar {
+    baseName = 'spring-async-core'
+    version = '0.0.1-SNAPSHOT'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+configurations {
+    all*.exclude module: 'tomcat-jdbc'
+}
+
+dependencies {
+    compile 'com.zaxxer:HikariCP'
+}
+
+
+sourceCompatibility = 1.8
+

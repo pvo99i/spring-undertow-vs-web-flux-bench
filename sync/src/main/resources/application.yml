@@ -1,0 +1,51 @@
+spring:
+  main.banner-mode: "off"
+  application:
+    name: async-app
+
+  http:
+    
+    multipart:
+      max-file-size: 5Mb
+      max-request-size: 5Mb
+      file-size-threshold: 1Mb
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: password
+    tomcat:
+      validation-query: SELECT 1
+      validation-query-timeout: 200
+      test-on-borrow: true
+      test-while-idle: true
+      max-wait: 900
+      max-active: 20
+      log-validation-errors: true
+      login-timeout: 500
+      min-idle: 2
+      max-idle: 5
+
+  jpa:
+    generate-ddl: false
+    hibernate.ddl-auto: validate
+
+  jooq:
+    sql-dialect: POSTGRES_9_5
+
+#  rabbitmq:
+#    host: localhost
+#    dynamic: true
+#    port: 5672
+#    username: user
+#    password: password
+
+
+liquibase:
+  change-log:  classpath:db/changelog/liquibase.xml
+  check-change-log-location: true
+
+server:
+  undertow:
+    worker-threads: 8

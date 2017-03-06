@@ -1,0 +1,10 @@
+dependencies {
+    compile project(':core')
+    compile 'org.springframework.boot:spring-boot-starter-webflux'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+sourceCompatibility = 1.8
